@@ -1,0 +1,81 @@
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: white;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+#calculator {
+    background-color: white;
+    max-width: 400px;
+    margin: 0 auto;
+    border: 3px solid #111;
+    border-radius: 5px;
+}
+
+.button {
+    background: white; /* light background with opacity 50% */
+    border: 2px solid #111; /* black border */
+    padding: 20px;
+    color: black; /* black text */
+    border-radius: 5px; /* rounded corners */
+    font-size: 22px; /* larger fonts */
+    cursor: pointer; /* make it look clickable */
+}
+
+#calculator input   {
+    /* reset basic form styles */
+    background: none;
+    border: none;
+    box-shadow: none;
+    outline: none;
+
+    background-color: white;
+    margin-top: 20px;
+    margin-left: 22px;
+    padding: 10px;
+    width: 89%;
+    height: 50%;
+    border: 3px solid #111;
+    color: black;
+    text-align: right;
+    font-size: 40px;
+    border-radius: 0;  
+
+}
+
+#calculator-buttons {
+    /* small spacing within our container */
+    padding: 20px;
+    /* the grid stuff! */
+    display: grid;
+    /* create 4 columns */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* add the grid gap */
+    grid-gap: 15px;
+}
+
+#clear,
+#delete {
+    grid-column: span 2;
+}
+
+#delete {
+    background-color: rgb(182, 32, 32);
+}
+
+#clear {
+    background-color: green;
+}
