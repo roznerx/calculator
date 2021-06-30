@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "pokemon-classic";
+    src: 
+        url("font/pokemon-classic.ttf") format("truetype"),
+	    url("font/pokemon-classic.woff2") format("woff2"),
+        url("font/pokemon-classic.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
 input[type='number'] {
     -moz-appearance:textfield;
 }
@@ -9,16 +19,17 @@ input::-webkit-inner-spin-button {
 
 * {
     box-sizing: border-box;
+    font-family: "pokemon-classic" !important;
 }
 
 body {
-    background: white;
+    background: #405010;
     padding-bottom: 30px;
     padding-top: 30px;
 }
 
 #calculator {
-    background-color: white;
+    background-color: #d0d058;
     max-width: 400px;
     margin: 0 auto;
     border: 3px solid #111;
@@ -26,23 +37,22 @@ body {
 }
 
 .button {
-    background: white; /* light background with opacity 50% */
-    border: 2px solid #111; /* black border */
+    background: #a0a840; 
+    border: 2px solid #111; 
     padding: 20px;
-    color: black; /* black text */
-    border-radius: 5px; /* rounded corners */
-    font-size: 22px; /* larger fonts */
-    cursor: pointer; /* make it look clickable */
+    color: black; 
+    border-radius: 5px;
+    font-size: 22px;
+    cursor: pointer;
 }
 
 #calculator input   {
-    /* reset basic form styles */
     background: none;
     border: none;
     box-shadow: none;
     outline: none;
 
-    background-color: white;
+    background-color: #708028;
     margin-top: 20px;
     margin-left: 22px;
     padding: 10px;
@@ -57,25 +67,26 @@ body {
 }
 
 #calculator-buttons {
-    /* small spacing within our container */
     padding: 20px;
-    /* the grid stuff! */
     display: grid;
-    /* create 4 columns */
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    /* add the grid gap */
     grid-gap: 15px;
 }
 
 #clear,
 #delete {
     grid-column: span 2;
+    width: 100%;
+    font-size: 120%;
 }
 
 #delete {
-    background-color: rgb(182, 32, 32);
+    background-color: #708028;
+    
 }
 
+
+
 #clear {
-    background-color: green;
+    background-color: #708028;
 }
