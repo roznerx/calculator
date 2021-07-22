@@ -32,6 +32,17 @@ sevenBtn.addEventListener("click", () => {
     }
 });
 
+document.addEventListener("keydown", e => {
+    if (e.key === "7") {
+        if (display.value === "0" || display.value == "ERROR!" || enabler == "ON") {
+            display.value = "7";
+            enabler = "OFF";
+        } else {
+            display.value += "7";
+        }
+    }  
+});
+
 const eightBtn = document.querySelector("#eight");
 eightBtn.addEventListener("click", () => {
     if (display.value === "0" || display.value == "ERROR!" || enabler == "ON") {
@@ -41,6 +52,17 @@ eightBtn.addEventListener("click", () => {
         display.value += "8";
     }
 });
+
+document.addEventListener("keydown", e => {
+    if (e.key === "8") {
+        if (display.value === "0" || display.value == "ERROR!" || enabler == "ON") {
+            display.value = "8"; 
+            enabler = "OFF"; 
+        } else {
+            display.value += "8";
+        }
+    }
+})
 
 const nineBtn = document.querySelector("#nine");
 nineBtn.addEventListener("click", () => {
@@ -52,6 +74,17 @@ nineBtn.addEventListener("click", () => {
     }
 });
 
+document.addEventListener("keydown", e => {
+    if (e.key === "9") {
+        if (display.value === "0" || display.value == "ERROR!" || enabler == "ON") {
+            display.value = "9";  
+            enabler = "OFF";
+        } else {
+            display.value += "9";
+        }
+    }
+})
+
 const fourBtn = document.querySelector("#four");
 fourBtn.addEventListener("click", () => {
     if (display.value === "0" || display.value == "ERROR!" || enabler == "ON") {
@@ -59,6 +92,17 @@ fourBtn.addEventListener("click", () => {
         enabler = "OFF";
     } else {
         display.value += "4";
+    }
+});
+
+document.addEventListener("keydown", e => {
+    if (e.key === "4") {
+        if (display.value === "0" || display.value == "ERROR!" || enabler == "ON") {
+            display.value = "4";  
+            enabler = "OFF";
+        } else {
+            display.value += "4";
+        }
     }
 });
 
@@ -72,6 +116,17 @@ fiveBtn.addEventListener("click", () => {
     }
 });
 
+document.addEventListener("keydown", e => {
+    if (e.key === "5") {
+        if (display.value === "0" || display.value == "ERROR!" || enabler == "ON") {
+            display.value = "5";  
+            enabler = "OFF";
+        } else {
+            display.value += "5";
+        }
+    }
+})
+
 const sixBtn = document.querySelector("#six");
 sixBtn.addEventListener("click", () => {
     if (display.value === "0" || display.value == "ERROR!" || enabler == "ON") {
@@ -81,6 +136,17 @@ sixBtn.addEventListener("click", () => {
         display.value += "6";
     }
 });
+
+document.addEventListener("keydown", e => {
+    if (e.key === "6") {
+        if (display.value === "0" || display.value == "ERROR!" || enabler == "ON") {
+            display.value = "6";  
+            enabler = "OFF";
+        } else {
+            display.value += "6";
+        }
+    }
+})
 
 const threeBtn = document.querySelector("#three");
 threeBtn.addEventListener("click", () => {
@@ -92,6 +158,17 @@ threeBtn.addEventListener("click", () => {
     }
 });
 
+document.addEventListener("keydown", e => {
+    if (e.key === "3") {
+        if (display.value === "0" || display.value == "ERROR!" || enabler == "ON") {
+            display.value = "3"; 
+            enabler = "OFF"; 
+        } else {
+            display.value += "3";
+        }
+    }
+})
+
 const twoBtn = document.querySelector("#two");
 twoBtn.addEventListener("click", () => {
     if (display.value === "0" || display.value == "ERROR!" || enabler == "ON") {
@@ -101,6 +178,17 @@ twoBtn.addEventListener("click", () => {
         display.value += "2";
     }
 });
+
+document.addEventListener("keydown", e => {
+    if (e.key === "2") {
+        if (display.value === "0" || display.value == "ERROR!" || enabler == "ON") {
+            display.value = "2";  
+            enabler = "OFF";
+        } else {
+            display.value += "2";
+        } 
+    }
+})
 
 const oneBtn = document.querySelector("#one");
 oneBtn.addEventListener("click", () => {
@@ -112,6 +200,17 @@ oneBtn.addEventListener("click", () => {
     }
 });
 
+document.addEventListener("keydown", e => {
+    if (e.key === "1") {
+        if (display.value === "0" || display.value == "ERROR!" || enabler == "ON") {
+            display.value = "1";  
+            enabler = "OFF";
+        } else {
+            display.value += "1";
+        }
+    }
+})
+
 const zeroBtn = document.querySelector("#zero");
 zeroBtn.addEventListener("click", () => {
     if (display.value === "0" || display.value == "ERROR!" || enabler == "ON") {
@@ -122,11 +221,21 @@ zeroBtn.addEventListener("click", () => {
     }
 });
 
+document.addEventListener("keydown", e => {
+    if (e.key === "0") {
+        if (display.value === "0" || display.value == "ERROR!" || enabler == "ON") {
+            display.value = "0";
+            enabler = "OFF";
+        } else {
+            display.value += "0";
+        }
+    }
+})
+
 //operations
 
 const addBtn = document.querySelector("#add");
 addBtn.addEventListener("click", () => {
-
     if (typeof operator == "function") {
         if (operator === divide && n2 === "0") {
             display.value = "ERROR!";
@@ -145,6 +254,28 @@ addBtn.addEventListener("click", () => {
         n2 = display.value;
     }
 });
+
+document.addEventListener("keydown", e => {
+    if (e.key === "+") {
+        if (typeof operator == "function") {
+            if (operator === divide && n2 === "0") {
+                display.value = "ERROR!";
+                operator = "";
+            } else {
+                n2 = parseFloat(display.value);
+                display.value = Math.round((operate(operator, n1, n2)) * 100 + Number.EPSILON) / 100;
+                n1 = parseFloat(display.value);
+                operator = add;
+                enabler = "ON";
+            }
+        } else {
+            n1 = parseFloat(display.value);
+            display.value = "0";   
+            operator = add;
+            n2 = display.value;
+        }
+    }
+})
 
 const substractBtn = document.querySelector("#substract");
 substractBtn.addEventListener("click", () => {
@@ -167,6 +298,28 @@ substractBtn.addEventListener("click", () => {
     }
 });
 
+document.addEventListener("keydown", e => {
+    if (e.key === "-") {
+        if (typeof operator == "function") {
+            if (operator === divide && n2 === "0") {
+                display.value = "ERROR!";
+                operator = "";
+            } else {
+                n2 = parseFloat(display.value);
+                display.value = Math.round((operate(operator, n1, n2)) * 100 + Number.EPSILON) / 100;
+                n1 = parseFloat(display.value);
+                operator = substract;
+                enabler = "ON";  
+            }
+        } else {
+            n1 = parseFloat(display.value);
+            display.value = "0";   
+            operator = substract;
+            n2 = display.value;
+        }
+    }
+})
+
 const multiplyBtn = document.querySelector("#multiply");
 multiplyBtn.addEventListener("click", () => {
     if (typeof operator == "function") {
@@ -187,6 +340,28 @@ multiplyBtn.addEventListener("click", () => {
         n2 = display.value;
     }
 });
+
+document.addEventListener("keydown", e => {
+    if (e.key === "*") {
+        if (typeof operator == "function") {
+            if (operator === divide && n2 === "0") {
+                display.value = "ERROR!";
+                operator = "";
+            } else {
+                n2 = parseFloat(display.value);
+                display.value = Math.round((operate(operator, n1, n2)) * 100 + Number.EPSILON) / 100;
+                n1 = parseFloat(display.value);
+                operator = multiply;     
+                enabler = "ON";   
+            }
+        } else {
+            n1 = parseFloat(display.value);
+            display.value = "0";   
+            operator = multiply;
+            n2 = display.value;
+        }
+    }
+})
 
 const divideBtn = document.querySelector("#divide");
 divideBtn.addEventListener("click", () => {
@@ -209,6 +384,29 @@ divideBtn.addEventListener("click", () => {
     }
 });
 
+document.addEventListener("keydown", e => {
+    if (e.key === "/") {
+        e.preventDefault()
+        if (typeof operator == "function") {
+            if (operator === divide && n2 === "0") {
+                display.value = "ERROR!";
+                operator = "";
+            } else {
+                n2 = parseFloat(display.value);
+                display.value = Math.round((operate(operator, n1, n2)) * 100 + Number.EPSILON) / 100;
+                n1 = parseFloat(display.value);
+                operator = divide;    
+                enabler = "ON";   
+            } 
+        } else {
+            n1 = parseFloat(display.value);
+            display.value = "0";   
+            operator = divide;
+            n2 = display.value;
+        }  
+    }
+})
+
 //equal
 
 const equalBtn = document.querySelector("#equal");
@@ -220,9 +418,25 @@ equalBtn.addEventListener("click", () => {
         } else {
             display.value = Math.round((operate(operator, n1, n2)) * 100 + Number.EPSILON) / 100;
             n1 = display.value;
-            operator = "";
+            enabler = "ON";   
+            operator = "";  
         }
 });
+
+document.addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+        n2 = parseFloat(display.value);
+        if (operator === divide && n2 === 0) {
+            display.value = "ERROR!";
+            operator = "";
+        } else {
+            display.value = Math.round((operate(operator, n1, n2)) * 100 + Number.EPSILON) / 100;
+            n1 = display.value;
+            enabler = "ON";   
+            operator = "";
+        }
+    }
+})
 
 //point
 
@@ -230,6 +444,12 @@ const pointBtn = document.querySelector("#point");
 pointBtn.addEventListener("click", () => {
     display.value += ".";
 });
+
+document.addEventListener("keydown", e => {
+    if (e.key === ".") {
+        display.value += ".";
+    }
+})
 
 //clear and delete
 
@@ -241,11 +461,34 @@ clearBtn.addEventListener("click", () => {
     operator = "";
 });
 
+document.addEventListener("keydown", e => {
+    if (e.key === "Delete") {
+        display.value = "0";
+        n1 = "";
+        n2 = "";
+        operator = "";
+    }
+})
+
 const deleteBtn = document.querySelector("#delete");
 deleteBtn.addEventListener("click", () => {
     displayValue = display.value;
     newDisplayValue = displayValue.substr(0, displayValue.length -1);
     display.value = newDisplayValue;
     displayValue = display.value;
+    if (displayValue === "") {
+        display.value += "0";
+    }
 });
 
+document.addEventListener("keydown", e => {
+    if (e.key === "Backspace") {
+        displayValue = display.value;
+        newDisplayValue = displayValue.substr(0, displayValue.length -1);
+        display.value = newDisplayValue;
+        displayValue = display.value;
+        if (displayValue === "") {
+            display.value += "0";
+        }
+    }
+})
